@@ -11,14 +11,12 @@ namespace Viselitsa.ViewModel
 {
     internal partial class GamePageViewModel: ObservableObject
     {
-        public event PropertyChangingEventHandler? PropertyChanged;
         //private List<Word> words = new List<Word>() { new Word() { Word="Овца" }, new Word() { Word="Собака" }, new Word() { Word="Кошка" } };
         private List<String> words = new List<String>() { "Овца", "Собака", "Кошка" };
-
         private String Word;
-        //private String lettersWord { get; set; }
+
         [ObservableProperty]
-        private ObservableCollection<char> _noVisibleWord = new ObservableCollection<char>() { };
+        private string _noVisibleWord;
 
         [ObservableProperty]
         private char _letter;
@@ -27,27 +25,27 @@ namespace Viselitsa.ViewModel
             Random random = new Random();
             int randomInt = random.Next(words.Count);
             Word = words[randomInt];
-            //NoVisibleWord = new ObservableCollection<Char>() { };
             
             for (int i = 0; i < Word.Length; i++)
             {
-                NoVisibleWord.Add('_');
+                NoVisibleWord += '_';
             }
         }
 
         [RelayCommand]
         private void GetLetter()
         {
-            
+            string newWord = "";
             for (int i = 0; i < Word.Length; i++)
             {
                 if (Word[i] == Letter) {
-                    NoVisibleWord.RemoveAt(i);
-                    NoVisibleWord.Insert(i, Letter);
-                    //NoVisibleWord[i] = Letter;
-                } 
+                    newWord += Letter;
+                } else
+                {
+                    newWord += "_";
+                }
             }
-            //NoVisibleWord = lettersWord;
+            NoVisibleWord = newWord;
         }
 
         //private void CreateWordElements() 

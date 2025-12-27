@@ -22,7 +22,7 @@
         <VerticalStackLayout Grid.Column="1">
 
             <Image Source="viselica.png" HeightRequest="100" ></Image>
-            <Label Text="{Binding NoVisibleWord, Converter={StaticResource wordConverter}}" FontSize="23"></Label>
+            <Label Text="{Binding NoVisibleWord}" FontSize="23"></Label>
             <Entry MaxLength="1" Text="{Binding Letter}"></Entry>
             <Button Command="{Binding GetLetterCommand}" Text="Get Letter"></Button>
             <!-- <ListView RowHeight="120"  ItemsSource="{Binding NoVisibleWord}">
