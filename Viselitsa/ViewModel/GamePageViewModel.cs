@@ -12,7 +12,7 @@ namespace Viselitsa.ViewModel
     internal partial class GamePageViewModel: ObservableObject
     {
         //private List<Word> words = new List<Word>() { new Word() { Word="Овца" }, new Word() { Word="Собака" }, new Word() { Word="Кошка" } };
-        private List<String> words = new List<String>() { "Овца", "Собака", "Кошка" };
+        private List<string> words = new List<string>() { "Овца", "Собака", "Кошка" };
         private String Word;
 
         [ObservableProperty]
@@ -28,7 +28,7 @@ namespace Viselitsa.ViewModel
             
             for (int i = 0; i < Word.Length; i++)
             {
-                NoVisibleWord += '_';
+                NoVisibleWord += "_";
             }
         }
 
@@ -38,12 +38,17 @@ namespace Viselitsa.ViewModel
             string newWord = "";
             for (int i = 0; i < Word.Length; i++)
             {
-                if (Word[i] == Letter) {
-                    newWord += Letter;
+                // Читаемости кода ради можно использовать слова в ловеркейс
+                if (Word[i].ToString().Equals(Letter.ToString(), StringComparison.CurrentCultureIgnoreCase)) {
+                    newWord += Word[i];
+                } else if (NoVisibleWord[i] != '_')
+                {
+                    newWord += NoVisibleWord[i];
                 } else
                 {
                     newWord += "_";
                 }
+                
             }
             NoVisibleWord = newWord;
         }
