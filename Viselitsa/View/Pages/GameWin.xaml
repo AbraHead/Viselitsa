@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ViewModel="clr-namespace:Viselitsa.ViewModel"
+             x:Class="Viselitsa.View.Pages.GameWin">
+
+    <ContentPage.BindingContext>
+        <ViewModel:EndGameViewModel></ViewModel:EndGameViewModel>
+    </ContentPage.BindingContext>
+    <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*">
+        <VerticalStackLayout Grid.Column="1" Grid.Row="1">
+            <Label Text="Вы угадали слово!" HorizontalOptions="Center" VerticalOptions="Center" FontSize="25" Margin="10"></Label>
+            <Button Text="Выход" Command="{Binding ExitCommand}"></Button>
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

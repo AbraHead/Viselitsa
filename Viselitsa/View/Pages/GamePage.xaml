@@ -21,7 +21,7 @@
     <Grid Padding="100" ColumnDefinitions="*,*,*">
         <VerticalStackLayout Grid.Column="1" Margin="50">
 
-            <Image Source="viselica.png" HeightRequest="150" ></Image>
+            <Image Source="{Binding VisilitsaImage}" HeightRequest="150" ></Image>
             <Label Text="{Binding NoVisibleWord}" FontSize="23" Margin="10" CharacterSpacing="2" VerticalOptions="Center" HorizontalOptions="Center"></Label>
             <Entry MaxLength="1" Text="{Binding Letter}" Margin="10" HorizontalTextAlignment="Center"></Entry> 
             <!-- <Editor MaxLength="1" Text="{Binding Letter}" Margin="10" WidthRequest="10" HorizontalTextAlignment="Center"></Editor> -->
